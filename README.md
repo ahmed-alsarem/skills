@@ -32,6 +32,6 @@ For unattended setup, you can bypass the selection prompt with `--agent '*' --ye
 | Skill | Purpose |
 | --- | --- |
 | [`ahmed-ui-ux-pro-max`](ahmed-ui-ux-pro-max/SKILL.md) | Distinctive UI/UX design and implementation, including Arabic and RTL interfaces. |
-| [`ahmed-laravel-modular-backend`](ahmed-laravel-modular-backend/SKILL.md) | Modular Laravel backend engineering grounded in project-matched official documentation, with a multi-agent workflow for non-trivial tasks when supported by the host. |
+| [`ahmed-laravel-modular-backend`](ahmed-laravel-modular-backend/SKILL.md) | Modular Laravel backend engineering with version-matched documentation, multi-agent workflow, and focused security audits. |
 
 Skills use the open Agent Skills format and are designed for compatible coding agents. Agent-specific features may vary.
