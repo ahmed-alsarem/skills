@@ -2,28 +2,30 @@
 
 Personal Agent Skills for UI/UX design and Laravel backend engineering. Each skill is independent and can be installed on its own.
 
-## Install one skill globally
+## Install one skill and choose your agent
 
-The `skills` CLI installs the selected skill to the coding agents you choose. Use `--agent '*'` to install it for every detected agent, including Codex and Antigravity:
+Run the command without `--agent` or `--yes`. The `skills` CLI will let you choose which detected coding agent or agents should receive the skill. `--global` makes it available across projects for the selected agent:
 
 ```bash
-npx skills add ahmed-alsarem/skills --skill ahmed-ui-ux-pro-max --agent '*' --global --yes
+npx skills add ahmed-alsarem/skills --skill ahmed-ui-ux-pro-max --global
 ```
 
 ```bash
-npx skills add ahmed-alsarem/skills --skill ahmed-laravel-modular-backend --agent '*' --global --yes
+npx skills add ahmed-alsarem/skills --skill ahmed-laravel-modular-backend --global
 ```
 
-Install both skills in one command:
+To choose multiple agents, select each one in the CLI prompt. To install both skills and choose the target agents:
 
 ```bash
 npx skills add ahmed-alsarem/skills \
   --skill ahmed-ui-ux-pro-max \
   --skill ahmed-laravel-modular-backend \
-  --agent '*' --global --yes
+  --global
 ```
 
-The CLI follows each agent's global skill directory. Antigravity's global location is `~/.gemini/config/skills/`; Codex uses `~/.agents/skills/`. To install for only one agent, replace `--agent '*'` with its name, such as `--agent antigravity` or `--agent codex`.
+The CLI follows each agent's global skill directory. Antigravity's global location is `~/.gemini/config/skills/`; Codex uses `~/.agents/skills/`. If Antigravity is not listed in the prompt, install it explicitly with `--agent antigravity`. Other supported targets can be selected by name, such as `--agent codex` or `--agent claude-code`.
+
+For unattended setup, you can bypass the selection prompt with `--agent '*' --yes`; this installs to all detected agents.
 
 ## Skills
 
