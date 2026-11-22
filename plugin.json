@@ -1,0 +1,28 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "ahmed-laravel-backend",
+  "displayName": "Ahmed Laravel Backend",
+  "version": "1.0.0",
+  "description": "Modular Laravel engineering with version-matched documentation, security audits, and coordinated agents.",
+  "logo": "assets/ahmed-laravel-mark.svg",
+  "suggestedPrompts": [
+    "/swarm Implement a Laravel feature using the ahmed-laravel-modular-backend skill. Split work across official-doc research, module architecture, implementation, security review, and independent verification, then integrate the results."
+  ],
+  "skills": [
+    "ahmed-laravel-modular-backend"
+  ],
+  "author": {
+    "name": "Ahmed AL-SAREM",
+    "url": "https://github.com/ahmed-alsarem"
+  },
+  "homepage": "https://github.com/ahmed-alsarem/skills",
+  "repository": "https://github.com/ahmed-alsarem/skills",
+  "keywords": [
+    "laravel",
+    "php",
+    "backend",
+    "modular-architecture",
+    "security",
+    "swarm"
+  ]
+}

@@ -27,6 +27,16 @@ The CLI follows each agent's global skill directory. Antigravity's global locati
 
 For unattended setup, you can bypass the selection prompt with `--agent '*' --yes`; this installs to all detected agents.
 
+## Antigravity plugin: Laravel icon and agent roles
+
+Antigravity skills do not have their own custom icons. This repository also includes an Antigravity plugin with a Laravel-inspired icon, the Laravel backend skill, and read-only documentation, architecture, and security subagents. Install it with:
+
+```bash
+agy plugin install https://github.com/ahmed-alsarem/skills
+```
+
+To run Antigravity's real shared-board Swarm, start the task with `/swarm` and ask it to use the Laravel backend skill. The plugin includes a suggested prompt that starts this workflow. The skill guides the workers; Antigravity's built-in `/swarm` command runs the orchestration.
+
 ## Skills
 
 | Skill | Purpose |
