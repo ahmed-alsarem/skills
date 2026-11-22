@@ -35,15 +35,20 @@ Deliver maintainable Laravel backend changes that fit the project, respect modul
 - Check query shape, eager loading, pagination, indexes, and transaction scope for data-heavy paths. Avoid hiding N+1 queries or expensive work behind convenience code.
 - Keep secrets and environment-specific values in configuration; never commit credentials or expose them in logs or responses.
 
-## 4. Coordinate multiple agents when supported
+## 4. Run non-trivial backend work as a multi-agent workflow
 
-For substantial features or architecture work, use independent agent roles when the environment supports delegation. Keep tasks bounded and avoid concurrent edits to the same files:
+For any non-trivial Laravel feature, module, refactor, migration, or security-sensitive change, coordinate multiple agents when the host exposes delegation. A simple question or tiny isolated fix does not need a team. The coordinating agent owns scope, shared contracts, integration, and the final result.
 
-1. **Architecture and documentation agent:** inspect the project and verify the installed Laravel/package versions, official documentation, module boundaries, and integration points. Return a short implementation map with sources.
-2. **Implementation agent:** own a clearly scoped module or vertical slice, following the agreed map and repository conventions. Do not silently broaden scope or change shared contracts.
-3. **Independent reviewer:** inspect the combined changes for correctness, security, authorization gaps, data integrity, query/performance risks, and mismatches with official versioned documentation. Report actionable findings separately from stylistic preferences.
+Use these distinct roles:
 
-Split further only when independent modules or concerns justify it. Assign one owner for shared contracts, migrations, and integration. The coordinating agent reconciles decisions, resolves conflicts against project evidence and official docs, and summarizes which review findings were addressed. If delegation is unavailable or unnecessary, perform these roles sequentially without pretending agents ran.
+1. **Project and documentation researcher (read-only):** inspect the project structure and version pins; find the matching official Laravel and package documentation; report relevant files, constraints, source links, and version-sensitive details.
+2. **Module architect (read-only):** map the domain boundaries, dependencies, data ownership, and integration points; propose the smallest coherent change and identify shared contracts before code is divided.
+3. **Implementation agent:** implement one agreed vertical slice or module area. Give each editing agent exclusive ownership of its files; do not let workers independently change shared contracts, central routes, or the same migrations.
+4. **Independent backend reviewer (read-only):** review the integrated diff for authorization, validation, tenant boundaries, data integrity, migration/deployment risks, query behavior, and versioned-doc mismatches. Return findings with file references and severity.
+
+The researcher and architect can work in parallel. Start implementation after the coordinator reconciles their findings. Run the reviewer after integration; fix valid findings and re-review affected changes. Split implementation across workers only when the module boundaries are independent, and assign one owner for shared schema, contracts, and final integration.
+
+Use the host's native delegation mechanism rather than assuming a particular agent API. On Antigravity, use subagents for focused research/review, `/swarm` for broad work that splits cleanly, and `/teamwork` only for large multi-milestone efforts. On Codex or another host, use its subagent tools when exposed. If the runtime cannot launch subagents, say so plainly and perform the same roles in separate sequential passes; never claim that multiple agents ran when they did not.
 
 ## 5. Validate changes proportionally
 
